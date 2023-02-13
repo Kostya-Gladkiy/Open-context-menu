@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 'OpenContextMenu' package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 'OpenContextMenu' '2.0.0'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2023-02-13 21:01+0400\n"
+"PO-Revision-Date: 2023-02-13 21:02+0400\n"
+"Last-Translator: Dragan Ratkovich\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: addon\GlobalPlugins\OpenContextMenu.py:38 buildVars.py:23
+msgid "Open context menu"
+msgstr "Открыть контекстное меню"
+
+#: addon\GlobalPlugins\OpenContextMenu.py:48
+msgid "Key combination to open the context menu:"
+msgstr "Комбинация клавиш для открытия контекстного меню:"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid ""
+"Adds the ability to open the context menu with one of several suggested "
+"keyboard shortcuts. You can choose a key combination in the add-on settings. "
+"By default, the control+rightShift key combination is used to open the "
+"context menu. This addition will be very useful for those who do not have a "
+"key to open the context menu on their keyboard."
+msgstr ""
+"Добавляет возможность открывать контекстное меню одним из нескольких "
+"предложенных сочетаний клавиш. Выбрать комбинацию клавиш можно в настройках "
+"дополнения. По умолчанию для открытия контекстного меню используется "
+"комбинация клавиш Ctrl+правый Shift. Это дополнение будет очень полезно для "
+"тех, у кого нет отдельной клавиши для открытия контекстного меню на "
+"клавиатуре."
