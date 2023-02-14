@@ -10,7 +10,6 @@ addonHandler.initTranslation()
 import languageHandler
 import config
 import api
-import ui
 
 SPEC = {
 	"key_combination": 'string(default="control+rightShift")',
@@ -31,7 +30,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		inputCore.manager.executeGesture = self.executeGesture
 
 	def executeGesture(self, gesture):
-		if gesture._keyNamesInDisplayOrder == key_combination:
+		if hasattr(gesture, "_keyNamesInDisplayOrder") and gesture._keyNamesInDisplayOrder == key_combination:
 			try:
 				# If the click occurs in the document, then you need to get a focusable element under the cursor and set the focus on it so that the context menu is called to this object
 				obj = api.getCaretObject().currentFocusableNVDAObject
