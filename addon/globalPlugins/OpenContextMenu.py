@@ -1,5 +1,6 @@
 import globalPluginHandler
 import addonHandler
+import mouseHandler
 import inputCore
 from keyboardHandler import KeyboardInputGesture
 import gui
@@ -8,6 +9,8 @@ import wx
 addonHandler.initTranslation()
 import languageHandler
 import config
+import api
+import ui
 
 SPEC = {
 	"key_combination": 'string(default="control+rightShift")',
@@ -29,9 +32,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def executeGesture(self, gesture):
 		if gesture._keyNamesInDisplayOrder == key_combination:
-			KeyboardInputGesture.fromName("applications").send()
-		else:
-			self._executeGesture(gesture)
+			try:
+				# If the click occurs in the document, then you need to get a focusable element under the cursor and set the focus on it so that the context menu is called to this object
+				obj = api.getCaretObject().currentFocusableNVDAObject
+				api.moveMouseToNVDAObject(obj)
+				api.setMouseObject(obj)
+				mouseHandler.doSecondaryClick()
+			except: 
+				obj = api.getFocusObject()
+				KeyboardInputGesture.fromName("applications").send()
+		self._executeGesture(gesture)
 
 
 class Settings(gui.SettingsPanel):
@@ -39,9 +49,12 @@ class Settings(gui.SettingsPanel):
 
 	key_combinations = {
 		"control+rightShift": "control+rightShift",
-		"rightWindows": "rightWindows",
-		"control+escape": "control+escape",
+		# "rightWindows": "rightWindows",
+		# "control+escape": "control+escape",
 		"rightControl": "rightControl",
+		"control+rightControl": "control+rightControl",
+		"alt+rightControl": "alt+rightControl",
+		"windows+rightControl": "windows+rightControl",
 	}
 	def makeSettings(self, settingsSizer):
 		settingsSizerHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
