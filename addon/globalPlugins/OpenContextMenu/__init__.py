@@ -7,7 +7,7 @@ import gui
 from gui import SettingsPanel, guiHelper, nvdaControls
 import wx
 addonHandler.initTranslation()
-import languageHandler
+# import languageHandler
 import config
 import api
 
@@ -48,13 +48,15 @@ class Settings(gui.SettingsPanel):
 
 	key_combinations = {
 		"control+rightShift": "control+rightShift",
-		# "rightWindows": "rightWindows",
-		# "control+escape": "control+escape",
 		"rightControl": "rightControl",
 		"control+rightControl": "control+rightControl",
 		"alt+rightControl": "alt+rightControl",
 		"windows+rightControl": "windows+rightControl",
+		"windows+leftShift": "windows+leftShift",
+		"windows+rightShift": "windows+rightShift",
+		# "windows+leftAlt": "windows+leftAlt",
 	}
+	
 	def makeSettings(self, settingsSizer):
 		settingsSizerHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 		self.keys = settingsSizerHelper.addLabeledControl(_("Key combination to open the context menu:"), wx.Choice, choices=list(self.key_combinations.values()))
